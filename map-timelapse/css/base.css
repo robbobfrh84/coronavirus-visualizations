@@ -3,11 +3,22 @@ body {
   padding: 0;
   background-color: #333;
 }
+nav {
+  height: 50px;
+}
+a {
+  text-decoration: none;
+}
+.vicon {
+  padding: 10px;
+  margin-left: 40px;
+  font-size: 22px;
+}
 .map-container {
   position: relative;
-  padding: 20px;
-  width: 800px;
-  height: 400px;
+  margin: auto;
+  width: 90vw;
+  height: 90vh;
 }
 #map {
   position: absolute;
