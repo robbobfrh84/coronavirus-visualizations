@@ -9,17 +9,21 @@ fetchMe.addEventListener('click', function(){
         const newline = /\n/g;
         const str = data;
         const result = newline[Symbol.split](str);
-        // const objKey = [];
-        // const location = [];
+        let objKey = [];
+        let locations = [];
         for (let i = 0; i < result.length; i++) {
           const comma = /,/g;
           const splitResult = comma[Symbol.split](result[i]);
-          console.log(splitResult)
-          // if (i == 0) {
-          //   objKey = splitResult;
-          // } else {
-          //
-          // }
+          if (i == 0) {
+            objKey = splitResult
+          } else {
+            const location = {};
+            objKey.forEach((item, j) => {
+              location[item] = splitResult[j];
+            });
+            locations.push(location);
+          }
         }
+        console.log(locations)
     });
 });
