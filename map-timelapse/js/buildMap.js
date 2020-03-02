@@ -6,9 +6,9 @@ const buildMap = function(objKey, locations) {
 	mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iYm9iZnJoODQiLCJhIjoiY2pvamcyNXUzMDFiMDNwcnc2Z2dibm10ZCJ9.y7ll2wHKfb5WIwtAtK9eJA';
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 0.5,
-        center: [150, 20]
+        style: 'mapbox://styles/mapbox/dark-v10',
+        zoom: 1.1,
+        center: [150, 25]
     })
     var size = 25
     var pulsingDot = {
