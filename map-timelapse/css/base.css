@@ -10,6 +10,11 @@ a {
   text-decoration: none;
   color: lime;
 }
+#dateHeader {
+  position: absolute;
+  right: 40px;
+  top: 10px;
+}
 .vicon {
   padding: 10px;
   margin-left: 40px;

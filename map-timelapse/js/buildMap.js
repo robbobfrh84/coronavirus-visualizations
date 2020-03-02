@@ -76,19 +76,28 @@ const buildMap = function(objKey, locations) {
           const longLat = []
           for (const loc of locations) {
             if (loc[date] > 0) {
-              longLat.push({Long: loc.Long, Lat: loc.Lat})
+              //longLat.push({Long: loc.Long, Lat: loc.Lat})
+              longLat.push({
+                'type': 'Feature',
+                'geometry': {
+                  'type': 'Point',
+                  'coordinates': [loc.Long, loc.Lat]
+                }
+              })
             }
           }
 
           const saveI = i
           setTimeout(function(){
+            console.log(date)
+            dateHeader.innerHTML = date
             longLat.forEach( (ll,j) => {
-              place(ll.Long, ll.Lat, saveI+"-"+j)
+              place(longLat, saveI+"-"+j)
             })
           }, i*1000)
         })
 
-        const place = function(lng, lat, cnt){
+        const place = function(longLat, cnt){
 
           map.addLayer({
               'id': 'points'+cnt,
@@ -97,15 +106,7 @@ const buildMap = function(objKey, locations) {
                   'type': 'geojson',
                   'data': {
                       'type': 'FeatureCollection',
-                      'features': [
-                          {
-                              'type': 'Feature',
-                              'geometry': {
-                                  'type': 'Point',
-                                  'coordinates': [lng, lat]
-                              }
-                          }
-                      ]
+                      'features': longLat,
                   }
               },
               'layout': {
