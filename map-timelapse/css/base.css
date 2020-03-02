@@ -8,6 +8,7 @@ nav {
 }
 a {
   text-decoration: none;
+  color: lime;
 }
 .vicon {
   padding: 10px;
@@ -18,11 +19,16 @@ a {
   position: relative;
   margin: auto;
   width: 90vw;
-  height: 90vh;
+  height: 85vh;
 }
 #map {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 100%;
+}
+.footer {
+  color: darkgray;
+  text-align: center;
+  padding: 10px;
 }
