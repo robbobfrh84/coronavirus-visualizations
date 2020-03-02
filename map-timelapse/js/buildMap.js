@@ -75,7 +75,7 @@ const buildMap = function(objKey, locations) {
         dates.forEach((date, i)=>{
           const saveI = i
           setTimeout(function(){
-            console.log(locations[i].Long, locations[i].Lat, saveI)
+            // console.log(locations[i].Long, locations[i].Lat, saveI)
             place(locations[i].Long, locations[i].Lat, saveI)
           }, i*500)
         })

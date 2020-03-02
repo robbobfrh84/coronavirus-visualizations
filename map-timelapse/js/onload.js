@@ -15,8 +15,10 @@ const getData = function(){
       let objKey = [];
       let locations = [];
       for (let i = 0; i < result.length; i++) {
+        const quote = /, /g;
+        const fixCsv = result[i].replace(quote, " ");
         const comma = /,/g;
-        const splitResult = comma[Symbol.split](result[i]);
+        const splitResult = comma[Symbol.split](fixCsv);
         if (i == 0) {
           objKey = splitResult
         } else {
