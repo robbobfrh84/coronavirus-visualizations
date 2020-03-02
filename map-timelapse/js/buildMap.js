@@ -79,7 +79,6 @@ const buildMap = function(objKey, locations) {
               longLat.push({Long: loc.Long, Lat: loc.Lat})
             }
           }
-
           const saveI = i
           setTimeout(function(){
             longLat.forEach( (ll,j) => {
@@ -87,6 +86,7 @@ const buildMap = function(objKey, locations) {
             })
           }, i*1000)
         })
+        console.log(locations)
 
         const place = function(lng, lat, cnt){
 

@@ -16,6 +16,7 @@ const getData = function(){
       let locations = [];
       for (let i = 0; i < result.length; i++) {
         const comma = /,/g;
+        console.log(result[i].split(','))
         const splitResult = comma[Symbol.split](result[i]);
         if (i == 0) {
           objKey = splitResult
