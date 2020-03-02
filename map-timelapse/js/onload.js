@@ -30,5 +30,6 @@ const getData = function(){
         }
       }
       buildMap(objKey, locations)
+      console.log(locations)
   });
 }
