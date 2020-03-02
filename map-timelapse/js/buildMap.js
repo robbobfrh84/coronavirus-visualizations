@@ -1,9 +1,7 @@
 // https://docs.mapbox.com/mapbox-gl-js/example/add-image-animated/
 const buildMap = function(objKey, locations) {
 
-  console.log(objKey)
-  const dates = [1,2,3,4,5,6].splice(2,4)
-  console.log("dates :", dates)
+  const dates = objKey.splice(4,objKey.length)
 
 	mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iYm9iZnJoODQiLCJhIjoiY2pvamcyNXUzMDFiMDNwcnc2Z2dibm10ZCJ9.y7ll2wHKfb5WIwtAtK9eJA';
     var map = new mapboxgl.Map({
@@ -68,15 +66,22 @@ const buildMap = function(objKey, locations) {
 
         map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 })
 
-        let cnt = 0
-        setTimeout(function(){ place(117.2264, 31.8257) }, 1000)
-        setTimeout(function(){ place(116.4142, 40.1824) }, 2000)
-        setTimeout(function(){ place(107.874, 30.0572) }, 3000)
-        setTimeout(function(){ place(117.9874, 26.0789) }, 4000)
-        setTimeout(function(){ place(103.8343, 36.0611) }, 5000)
+        // setTimeout(function(){ place(117.2264, 31.8257, 0) }, 1000)
+        // setTimeout(function(){ place(116.4142, 40.1824), 1}, 2000)
+        // setTimeout(function(){ place(107.874, 30.0572), 2}, 3000)
+        // setTimeout(function(){ place(117.9874, 26.0789) }, 4000)
+        // setTimeout(function(){ place(103.8343, 36.0611) }, 5000)
 
-        const place = function(lng, lat){
-          cnt++
+        dates.forEach((date, i)=>{
+          const saveI = i
+          setTimeout(function(){
+            console.log(locations[i].Long, locations[i].Lat, saveI)
+            place(locations[i].Long, locations[i].Lat, saveI)
+          }, i*500)
+        })
+
+        const place = function(lng, lat, cnt){
+
           map.addLayer({
               'id': 'points'+cnt,
               'type': 'symbol',
