@@ -1,8 +1,6 @@
 // https://docs.mapbox.com/mapbox-gl-js/example/add-image-animated/
 const buildMap = function(objKey, locations) {
 
-  const dates = objKey.splice(4,objKey.length)
-
 	mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iYm9iZnJoODQiLCJhIjoiY2pvamcyNXUzMDFiMDNwcnc2Z2dibm10ZCJ9.y7ll2wHKfb5WIwtAtK9eJA';
     var map = new mapboxgl.Map({
         container: 'map',
@@ -72,29 +70,58 @@ const buildMap = function(objKey, locations) {
         // setTimeout(function(){ place(117.9874, 26.0789) }, 4000)
         // setTimeout(function(){ place(103.8343, 36.0611) }, 5000)
 
+        //
+        //let dates = objKey.splice(4,objKey.length)
+        dates = objKey.splice(objKey.length-1, objKey.length)
+        //
+        //
+
         dates.forEach((date, i)=>{
           const longLat = []
-          for (const loc of locations) {
+          const saveI = i
+          const objCnt = 0
+          for (const l in locations) {
+            const loc = locations[l]
             if (loc[date] > 0) {
-              //longLat.push({Long: loc.Long, Lat: loc.Lat})
-              longLat.push({
-                'type': 'Feature',
-                'geometry': {
-                  'type': 'Point',
-                  'coordinates': [loc.Long, loc.Lat]
-                }
-              })
+              // longLat.push({
+              //   'type': 'Feature',
+              //   'geometry': {
+              //     'type': 'Point',
+              //     'coordinates': [loc.Long, loc.Lat]
+              //   }
+              // })
+              const saveL = l
+              const id = "cord_"+loc.Long+"_"+loc.Lat
+              // const langLat = [parseFloat(loc.Long), parseFloat(loc.Lat)]
+              setTimeout(function(){
+                dateHeader.innerHTML = date
+                // longLat.push({
+                //   'type': 'Feature',
+                //   'geometry': {
+                //     'type': 'Point',
+                //     'coordinates': [loc.Long, loc.Lat]
+                //   }
+                // })
+                place([{
+                  'type': 'Feature',
+                  'geometry': {
+                    'type': 'Point',
+                    'coordinates': [loc.Long, loc.Lat]
+                  }
+                }], id)
+
+              }, ((saveI+1)*(saveL+1))*20)
+
             }
           }
 
-          const saveI = i
-          setTimeout(function(){
-            // console.log(date)
-            dateHeader.innerHTML = date
-            longLat.forEach( (ll,j) => {
-              place(longLat, saveI+"-"+j)
-            })
-          }, i*1000)
+          // setTimeout(function(){
+          //   // console.log(date)
+          //   dateHeader.innerHTML = date
+          //   longLat.forEach( (ll,j) => {
+          //     place(longLat, saveI+"-"+j)
+          //   })
+          // }, i*1000)
         })
 
         const place = function(longLat, cnt){
