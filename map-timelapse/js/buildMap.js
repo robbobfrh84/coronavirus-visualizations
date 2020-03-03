@@ -89,7 +89,7 @@ const buildMap = function(objKey, locations) {
 
           const saveI = i
           setTimeout(function(){
-            console.log(date)
+            // console.log(date)
             dateHeader.innerHTML = date
             longLat.forEach( (ll,j) => {
               place(longLat, saveI+"-"+j)
