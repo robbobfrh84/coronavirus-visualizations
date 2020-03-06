@@ -36,10 +36,10 @@ const table = function(objKey, locs) {
     }
     tableContainer.innerHTML += `
     <tr>
-      <td>${d.Date} &nbsp; &nbsp; </td>
-      <td>${d["Daily Increase"]}</td>
-      <th>${per}</th>
-      <td>${d["Total"]}</td>
+      <td style="width:100px">${d.Date} &nbsp; &nbsp; </td>
+      <td style="width:auto">${d["Daily Increase"]}</td>
+      <th style="width:auto">${per}</th>
+      <td style="width:auto">${d["Total"]}</td>
     </tr>
     `
   })
