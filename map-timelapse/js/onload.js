@@ -14,10 +14,25 @@ const getData = function(){
       const result = newline[Symbol.split](str);
       let objKey = [];
       let locations = [];
+      const quote = /, /g;
+      const comma = /,/g;
+      const firstLine = result[0].replace(quote, " ")
+      const line = comma[Symbol.split](firstLine);
+      let dates = [];
+      for (var k = 4; k < line.length; k++) {
+        let date = line[k];
+        dates.push(date);
+      }
+      setTimeout(function(){
+        dates.forEach((date, l) => {
+          const saveL = l;
+          setTimeout(function(){
+            dateContainer.innerHTML = date
+          }, saveL*750)
+        });
+      }, 1000);
       for (let i = 0; i < result.length; i++) {
-        const quote = /, /g;
         const fixCsv = result[i].replace(quote, " ");
-        const comma = /,/g;
         const splitResult = comma[Symbol.split](fixCsv);
         if (i == 0) {
           objKey = splitResult
@@ -29,7 +44,6 @@ const getData = function(){
           locations.push(location);
         }
       }
-      buildMap(objKey, locations)
-      console.log(locations)
+      buildMap(objKey, locations, dates);
   });
 }

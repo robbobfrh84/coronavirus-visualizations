@@ -3,28 +3,30 @@ body {
   padding: 0;
   background-color: #333;
 }
-nav {
-  height: 50px;
-}
 a {
   text-decoration: none;
   color: lime;
 }
-#dateHeader {
-  position: absolute;
-  right: 40px;
-  top: 10px;
+nav {
+  height: 50px;
 }
-.vicon {
-  padding: 10px;
-  margin-left: 40px;
+.icon {
   font-size: 22px;
+  vertical-align: middle;
 }
 .map-container {
   position: relative;
   margin: auto;
   width: 90vw;
   height: 85vh;
+}
+.date {
+  font-size: 75px;
+  color: gray;
+  position: absolute;
+  left: 45vw;
+  top: 40vh;
+  z-index: 999;
 }
 #map {
   position: absolute;
@@ -35,5 +37,5 @@ a {
 .footer {
   color: darkgray;
   text-align: center;
-  padding: 10px;
+  padding-top: 10px;
 }
