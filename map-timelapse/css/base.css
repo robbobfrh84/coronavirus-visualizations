@@ -20,6 +20,12 @@ nav {
   width: 90vw;
   height: 85vh;
 }
+.marker {
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: .5s opacity, .4s border, .5s width, .5s height;
+}
 .date {
   font-size: 75px;
   color: gray;

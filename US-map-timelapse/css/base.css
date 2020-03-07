@@ -25,31 +25,10 @@ a {
   bottom: 50px;
 }
 .marker {
-  /* background-image: url('mapbox-icon.png'); */
-  position: relative;
-  /* width: 20px;
-  height: 20px; */
+  position: absolute;
   border-radius: 50%;
-  background-color: darkgoldenrod;
   cursor: pointer;
-}
-.recoverd {
-  position: relative;
-  width: 8px;
-  height: 8px;
-  top: 6.5px;
-  border-radius: 50%;
-  background-color: green;
-  /* box-shadow: 2px 2px 2px 2px black; */
-}
-.died {
-  position: relative;
-  width: 5px;
-  height: 5px;
-  left: 15px;
-  border-radius: 50%;
-  background-color: red;
-  /* box-shadow: 2px 2px 2px 2px black; */
+  transition: .5s opacity, .4s border, .5s width, .5s height;
 }
 .date {
   font-size: 75px;
@@ -59,7 +38,6 @@ a {
   top: 40vh;
   z-index: 999;
 }
-
 .footer {
   color: darkgray;
   position: absolute;

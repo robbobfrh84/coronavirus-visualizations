@@ -23,14 +23,14 @@ const getData = function(){
         let date = line[k];
         dates.push(date);
       }
-      setTimeout(function(){
-        dates.forEach((date, l) => {
-          const saveL = l;
-          setTimeout(function(){
-            dateContainer.innerHTML = date
-          }, saveL*750)
-        });
-      }, 1000);
+      // setTimeout(function(){
+      //   dates.forEach((date, l) => {
+      //     const saveL = l;
+      //     setTimeout(function(){
+      //       dateContainer.innerHTML = date
+      //     }, saveL*750)
+      //   });
+      // }, 1000);
       for (let i = 0; i < result.length; i++) {
         const fixCsv = result[i].replace(quote, " ");
         const splitResult = comma[Symbol.split](fixCsv);
