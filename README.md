@@ -1,11 +1,11 @@
 # coronavirus-visualizations
 Data visualizations of the novel coronavirus
 
-Global Map Timelapse: https://robbobfrh84.github.io/coronavirus-visualizations/map-timelapse/
+[Global Map Timelapse](https://robbobfrh84.github.io/coronavirus-visualizations/map-timelapse/)
 
-US Map Timelapse: https://robbobfrh84.github.io/coronavirus-visualizations/US-map-timelapse/
+[US Map Timelapse](https://robbobfrh84.github.io/coronavirus-visualizations/US-map-timelapse/)
 
-US Totals: https://robbobfrh84.github.io/coronavirus-visualizations/US/
+[US Totals](https://robbobfrh84.github.io/coronavirus-visualizations/US/)
 
 # Resources 
 
