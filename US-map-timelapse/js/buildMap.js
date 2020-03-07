@@ -4,7 +4,7 @@ const buildMap = function(objKey, locations) {
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v10',
-    zoom: 2.5,
+    zoom: 2.99,
     center: [-100, 37]
   })
 
@@ -36,8 +36,6 @@ const buildMap = function(objKey, locations) {
       var el = document.createElement('div')
       el.className = 'marker'
       el.id = marker.id
-      // el.style.width = marker.size+"px"
-      // el.style.height = marker.size+"px"
       el.style.opacity = 0
       el.style.border = initialBorder
       el.style.backgroundColor = "darkgoldenrod"
@@ -64,6 +62,7 @@ const buildMap = function(objKey, locations) {
           marker.locationInfo.previous = cnt
           return marker
         })
+        dateContainer.innerHTML = d
       }, saveI*300)
 
     })

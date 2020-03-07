@@ -37,8 +37,6 @@ const buildMap = function(objKey, locations) {
       var el = document.createElement('div')
       el.className = 'marker'
       el.id = marker.id
-      // el.style.width = marker.size+"px"
-      // el.style.height = marker.size+"px"
       el.style.opacity = 0
       el.style.border = initialBorder
       el.style.backgroundColor = "darkgoldenrod"
@@ -66,7 +64,7 @@ const buildMap = function(objKey, locations) {
           return marker
         })
         dateContainer.innerHTML = d
-      }, saveI*300)
+      }, saveI*500)
 
     })
   })

@@ -7,8 +7,17 @@ a {
   text-decoration: none;
   color: lime;
 }
+a:hover {
+  opacity: 0.7;
+}
 nav {
-  height: 50px;
+  height: 40px;
+  text-align: right;
+  padding: 5px;
+}
+nav > div {
+  float: right;
+  text-align: left;
 }
 .icon {
   font-size: 22px;
@@ -44,4 +53,7 @@ nav {
   color: darkgray;
   text-align: center;
   padding-top: 10px;
+}
+.mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl-bottom-right {
+  display: none;
 }
