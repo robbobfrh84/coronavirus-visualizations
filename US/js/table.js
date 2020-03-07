@@ -1,23 +1,31 @@
 const table = function(objKey, locs) {
 
   const dates = objKey.splice(4,objKey.length)
+  // Save this 👇. It's good for debugging - only uses last two days.
+  // const dates = objKey.splice(objKey.length-2,objKey.length)
 
   const usLocations = locs.filter( l => l["Country/Region"] == "US" )
 
   const usDates = []
   let total = 0
   let oldTotal = total
-  dates.forEach( d => {
+  dates.forEach( (d, i) => {
     let dailyCnt = 0
     usLocations.forEach( l => {
-      dailyCnt += parseInt(l[d])
+      if (l[d] === "") {
+        //  Handles Dates that are empty
+        //  - which means they were the same as the Day before...
+        dailyCnt += parseInt(l[dates[i-1]])
+      } else {
+        dailyCnt += parseInt(l[d])
+      }
+
     })
     total += dailyCnt - oldTotal
     usDates.push({ "Daily Increase": total - oldTotal, "Total": total, "Date": d })
     oldTotal = dailyCnt
   })
 
-  console.log("usDates :", usDates)
   usDates.reverse()
   tableContainer.innerHTML += `
     <tr>
@@ -28,11 +36,13 @@ const table = function(objKey, locs) {
     </tr>
   `
 
+  console.log("usDates", usDates)
+
   usDates.forEach( (d, i) => {
-    let per = Math.round( (d["Daily Increase"]*100) / d["Total"] )
-    console.log(d["Daily Increase"] == 0, per)
+    let per =( (d["Daily Increase"]*100) / d["Total"] ).toFixed(1) + "%"
+
     if (d["Daily Increase"] == 0) {
-      per = d["Total"]
+      per = `-`
     }
     tableContainer.innerHTML += `
     <tr>

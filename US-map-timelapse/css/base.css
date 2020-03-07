@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+}
+a {
+  text-decoration: none;
+  color: lime;
+}
+nav {
+  height: 50px;
+}
+.icon {
+  font-size: 22px;
+  vertical-align: middle;
+}
+.map-container {
+  position: relative;
+  margin: auto;
+  width: 90vw;
+  height: 85vh;
+}
+.date {
+  font-size: 75px;
+  color: gray;
+  position: absolute;
+  left: 45vw;
+  top: 40vh;
+  z-index: 999;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+.footer {
+  color: darkgray;
+  text-align: center;
+  padding-top: 10px;
+}
