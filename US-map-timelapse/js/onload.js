@@ -26,9 +26,9 @@ const getData = function(){
       setTimeout(function(){
         dates.forEach((date, l) => {
           const saveL = l;
-          setTimeout(function(){
-            dateContainer.innerHTML = date
-          }, saveL*750)
+          // setTimeout(function(){
+          //   dateContainer.innerHTML = date
+          // }, saveL*750)
         });
       }, 1000);
       for (let i = 0; i < result.length; i++) {
