@@ -7,6 +7,8 @@ Data visualizations of the novel coronavirus
 
 [US Totals](https://robbobfrh84.github.io/coronavirus-visualizations/US/)
 
+[![Tweet](https://img.shields.io/twitter/url/https/github.com/jonsn0w/hyde.svg?style=social)](https://twitter.com/BobMain49)
+
 # Resources 
 
 - Coronavirus Disease 2019 (COVID-19): https://www.cdc.gov/coronavirus/2019-ncov/index.html
