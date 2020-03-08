@@ -32,6 +32,7 @@ const buildMap = function(objKey, locations) {
   // const dates = objKey.splice(objKey.length-4,objKey.length)
 
   map.on('load', function() {
+
     geojson.features.forEach( (marker, i) => {
       var el = document.createElement('div')
       el.className = 'marker'
@@ -39,9 +40,11 @@ const buildMap = function(objKey, locations) {
       el.style.opacity = 0
       el.style.border = initialBorder
       el.style.backgroundColor = "darkgoldenrod"
-      new mapboxgl.Marker(el)
-        .setLngLat(marker.geometry.coordinates)
-        .addTo(map);
+      if (!isNaN(marker.geometry.coordinates[0])) {
+        new mapboxgl.Marker(el)
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(map);
+      }
     })
 
     dates.forEach((d, i) => {

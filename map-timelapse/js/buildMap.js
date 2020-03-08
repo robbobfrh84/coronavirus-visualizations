@@ -40,9 +40,11 @@ const buildMap = function(objKey, locations) {
       el.style.opacity = 0
       el.style.border = initialBorder
       el.style.backgroundColor = "darkgoldenrod"
-      new mapboxgl.Marker(el)
-        .setLngLat(marker.geometry.coordinates)
-        .addTo(map);
+      if (!isNaN(marker.geometry.coordinates[0])) {
+        new mapboxgl.Marker(el)
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(map);
+      }
     })
 
     dates.forEach((d, i) => {
