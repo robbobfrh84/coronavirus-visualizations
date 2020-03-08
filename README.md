@@ -1,7 +1,4 @@
 [![Tweet](https://img.shields.io/twitter/url/https/github.com/jonsn0w/hyde.svg?style=social)](https://twitter.com/BobMain49)
-[![Sponsor Emily](https://img.shields.io/github/stars/jonsn0w/hyde.svg?style=social)](https://github.com/sponsors/eamoses)
-[![Sponsor Bob](https://img.shields.io/github/stars/jonsn0w/hyde.svg?style=social)](https://github.com/sponsors/robbobfr84)
-
 
 # coronavirus-visualizations
 Data visualizations of the novel coronavirus
