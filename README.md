@@ -1,7 +1,8 @@
+![Work In Progress](https://unpkg.com/vvwip/WIP.svg)\
+
 [![Tweet](https://img.shields.io/twitter/url/https/github.com/jonsn0w/hyde.svg?style=social)](https://twitter.com/BobMain49)
 [![Analytics](https://ga-beacon.appspot.com/UA-38514290-17/github.com/Naereen/badges/README.md?pixel)](https://GitHub.com/Naereen/badges/)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/robbobfrh84/coronavirus-visualizations)
-![Work In Progress](https://unpkg.com/vvwip/WIP.svg)
 
 
 # coronavirus-visualizations
