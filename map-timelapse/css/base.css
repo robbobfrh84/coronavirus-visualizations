@@ -15,7 +15,12 @@ nav {
   text-align: right;
   padding: 5px;
 }
-nav > div {
+.restart {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.right-nav {
   float: right;
   text-align: left;
 }
