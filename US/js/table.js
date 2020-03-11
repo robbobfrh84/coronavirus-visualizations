@@ -15,11 +15,10 @@ const table = function(objKey, locs) {
       if (l[d] === "") {
         //  Handles Dates that are empty
         //  - which means they were the same as the Day before...
-        dailyCnt += parseInt(l[dates[i-1]])
+        //  dailyCnt += parseInt(l[dates[i-1]]) // This was wrong, but wondering if it fixed something, and it was right at some point.
       } else {
         dailyCnt += parseInt(l[d])
       }
-
     })
     total += dailyCnt - oldTotal
     usDates.push({ "Daily Increase": total - oldTotal, "Total": total, "Date": d })
@@ -36,11 +35,16 @@ const table = function(objKey, locs) {
     </tr>
   `
 
+  console.log("usLocations :", usLocations)
+  console.log("dates :", dates)
   console.log("usDates", usDates)
 
   usDates.forEach( (d, i) => {
-    let per =( (d["Daily Increase"]*100) / d["Total"] ).toFixed(1) + "%"
 
+    let per = `-`
+    if (i < usDates.length-1) {
+      per =( (d["Daily Increase"]*100) / usDates[i+1]["Total"] ).toFixed(1) + "%"
+    }
     if (d["Daily Increase"] == 0) {
       per = `-`
     }

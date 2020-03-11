@@ -16,6 +16,7 @@ const buildMap = function(objKey, locations) {
 
   locations.forEach( (l, i) => {
     l.previous = 0
+    console.log("l :", l)
     geojson.features.push({
       type: 'Feature',
       id: "long_"+l.Long+"_lat_"+l.Lat,

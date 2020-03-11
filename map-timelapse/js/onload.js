@@ -8,42 +8,34 @@ const getData = function(){
     return response.text();
   })
   .then(function(data) {
-      const fetchIt = document.getElementById('fetchIt');
-      const newline = /\n/g;
-      const str = data;
-      const result = newline[Symbol.split](str);
-      let objKey = [];
-      let locations = [];
-      const quote = /, /g;
-      const comma = /,/g;
-      const firstLine = result[0].replace(quote, " ")
-      const line = comma[Symbol.split](firstLine);
-      let dates = [];
-      for (var k = 4; k < line.length; k++) {
-        let date = line[k];
-        dates.push(date);
+    const fetchIt = document.getElementById('fetchIt');
+    const newline = /\n/g;
+    const str = data;
+    const result = newline[Symbol.split](str);
+    let objKey = [];
+    let locations = [];
+    const quote = /, /g;
+    const comma = /,/g;
+    const firstLine = result[0].replace(quote, " ")
+    const line = comma[Symbol.split](firstLine);
+    let dates = [];
+    for (var k = 4; k < line.length; k++) {
+      let date = line[k];
+      dates.push(date);
+    }
+    for (let i = 0; i < result.length; i++) {
+      const fixCsv = result[i].replace(quote, " ");
+      const splitResult = comma[Symbol.split](fixCsv);
+      if (i == 0) {
+        objKey = splitResult
+      } else {
+        const location = {};
+        objKey.forEach((item, j) => {
+          location[item] = splitResult[j];
+        });
+        locations.push(location);
       }
-      // setTimeout(function(){
-      //   dates.forEach((date, l) => {
-      //     const saveL = l;
-      //     setTimeout(function(){
-      //       dateContainer.innerHTML = date
-      //     }, saveL*750)
-      //   });
-      // }, 1000);
-      for (let i = 0; i < result.length; i++) {
-        const fixCsv = result[i].replace(quote, " ");
-        const splitResult = comma[Symbol.split](fixCsv);
-        if (i == 0) {
-          objKey = splitResult
-        } else {
-          const location = {};
-          objKey.forEach((item, j) => {
-            location[item] = splitResult[j];
-          });
-          locations.push(location);
-        }
-      }
-      buildMap(objKey, locations, dates);
+    }
+    buildMap(objKey, locations, dates);
   });
 }
