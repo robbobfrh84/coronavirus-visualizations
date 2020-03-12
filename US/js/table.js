@@ -2,13 +2,14 @@ const table = function(objKey, locs) {
 
   const dates = objKey.splice(4,objKey.length)
   // Save this 👇. It's good for debugging - only uses last two days.
-  // const dates = objKey.splice(objKey.length-2,objKey.length)
+  // const dates = objKey.splice(objKey.length-4,objKey.length)
 
   const usLocations = locs.filter( l => l["Country/Region"] == "US" )
 
-  const usDates = []
+  const usDatesTotals = []
   let total = 0
   let oldTotal = total
+
   dates.forEach( (d, i) => {
     let dailyCnt = 0
     usLocations.forEach( l => {
@@ -20,12 +21,21 @@ const table = function(objKey, locs) {
         dailyCnt += parseInt(l[d])
       }
     })
+
+    // 🐛bug patch...
+    if (d == "3/10/20") {
+      dailyCnt = 959
+    }
+    // 🐛 bug patch...
+
     total += dailyCnt - oldTotal
-    usDates.push({ "Daily Increase": total - oldTotal, "Total": total, "Date": d })
+    let dailyIncrease = total - oldTotal
+
+    usDatesTotals.push({ "Daily Increase": dailyIncrease, "Total": total, "Date": d })
     oldTotal = dailyCnt
   })
 
-  usDates.reverse()
+  usDatesTotals.reverse()
   tableContainer.innerHTML += `
     <tr>
       <th>Date</th>
@@ -37,13 +47,13 @@ const table = function(objKey, locs) {
 
   console.log("usLocations :", usLocations)
   console.log("dates :", dates)
-  console.log("usDates", usDates)
+  console.log("usDatesTotals", usDatesTotals)
 
-  usDates.forEach( (d, i) => {
+  usDatesTotals.forEach( (d, i) => {
 
     let per = `-`
-    if (i < usDates.length-1) {
-      per =( (d["Daily Increase"]*100) / usDates[i+1]["Total"] ).toFixed(1) + "%"
+    if (i < usDatesTotals.length-1) {
+      per =( (d["Daily Increase"]*100) / usDatesTotals[i+1]["Total"] ).toFixed(1) + "%"
     }
     if (d["Daily Increase"] == 0) {
       per = `-`
