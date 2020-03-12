@@ -51,19 +51,35 @@ const buildMap = function(objKey, locations) {
       const saveI = i + 1
 
       setTimeout(function(){
-        geojson.features.map( marker => {
 
-          const el = document.getElementById(marker.id)
-          const cnt = marker.locationInfo[d]
-          if (cnt > marker.locationInfo.previous) {
-            scale(el, cnt, marker, marker.locationInfo.placed)
-            marker.locationInfo.placed = true
-            setTimeout(function(){
-              el.style.border = "solid " + (marker.size / 5) + "px rgba(0,0,0,0.5)"
-            },200)
-          }
-          marker.locationInfo.previous = cnt
-          return marker
+        geojson.features.map( (marker, mi) => {
+
+          const saveL = geojson.features.length-1
+
+          setTimeout(function(){
+
+            const el = document.getElementById(marker.id)
+            const cnt = marker.locationInfo[d]
+            if (cnt > marker.locationInfo.previous) {
+              scale(el, cnt, marker, marker.locationInfo.placed)
+              marker.locationInfo.placed = true
+              setTimeout(function(){
+                el.style.border = "solid " + (marker.size / 5) + "px rgba(0,0,0,0.5)"
+              },100+(random(0,400)))
+            }
+            marker.locationInfo.previous = cnt
+
+            // if (mi >= saveL) {
+            //   console.log(d)
+            //   dateContainer.innerHTML = d
+            // }
+
+            return marker
+
+
+          }, (mi*10))
+
+
         })
         dateContainer.innerHTML = d
       }, saveI*300)
