@@ -60,5 +60,6 @@ const currentStates = [
   'Virginia',
   'Washington',
   'West Virginia',
-  'Wisconsin','Wyoming'
+  'Wisconsin',
+  'Wyoming'
 ]
