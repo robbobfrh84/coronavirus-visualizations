@@ -55,6 +55,7 @@ const buildMap = function(objKey, locations) {
         geojson.features.map( (marker, mi) => {
 
           const saveL = geojson.features.length-1
+          const saveMi = mi
 
           setTimeout(function(){
 
@@ -69,19 +70,19 @@ const buildMap = function(objKey, locations) {
             }
             marker.locationInfo.previous = cnt
 
-            // if (mi >= saveL) {
-            //   console.log(d)
-            //   dateContainer.innerHTML = d
-            // }
+            if (saveMi >= saveL) {
+              // console.log(d)
+              dateContainer.innerHTML = d
+            }
 
             return marker
 
 
-          }, (mi*10))
+          }, (saveMi*10))
 
 
         })
-        dateContainer.innerHTML = d
+        // dateContainer.innerHTML = d
       }, saveI*300)
 
     })

@@ -19,12 +19,12 @@ const table = function(objKey, locs) {
         //  dailyCnt += parseInt(l[dates[i-1]]) // This was wrong, but wondering if it fixed something, and it was right at some point.
       } else {
         if (!currentStates.includes(l["Province/State"])) {
-          dailyCnt += parseInt(l[d])
+          // dailyCnt += parseInt(l[d])
           // console.log("NOT A STATE: ", l, '-')
         } else {
           // console.log("A STATE: ", l, '-')
         }
-        //dailyCnt += parseInt(l[d])
+        dailyCnt += parseInt(l[d])
       }
     })
 
