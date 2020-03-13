@@ -48,42 +48,31 @@ const buildMap = function(objKey, locations) {
     })
 
     dates.forEach((d, i) => {
-      const saveI = i + 1
+      const saveI = i
+      const saveD = d
 
-      setTimeout(function(){
+      geojson.features.forEach( (marker, mi) => {
+        const saveMi = mi
+        const saveL = geojson.features.length-1
 
-        geojson.features.map( (marker, mi) => {
+        setTimeout(function(){
+          const el = document.getElementById(marker.id)
+          const cnt = marker.locationInfo[d]
+          if (cnt > marker.locationInfo.previous) {
+            scale(el, cnt, marker, marker.locationInfo.placed)
+            marker.locationInfo.placed = true
+            setTimeout(function(){
+              el.style.border = "solid " + (marker.size / 5) + "px rgba(0,0,0,0.5)"
+            },100+(random(0,400)))
+          }
+          marker.locationInfo.previous = cnt
 
-          const saveL = geojson.features.length-1
-          const saveMi = mi
-
-          setTimeout(function(){
-
-            const el = document.getElementById(marker.id)
-            const cnt = marker.locationInfo[d]
-            if (cnt > marker.locationInfo.previous) {
-              scale(el, cnt, marker, marker.locationInfo.placed)
-              marker.locationInfo.placed = true
-              setTimeout(function(){
-                el.style.border = "solid " + (marker.size / 5) + "px rgba(0,0,0,0.5)"
-              },100+(random(0,400)))
-            }
-            marker.locationInfo.previous = cnt
-
-            if (saveMi >= saveL) {
-              // console.log(d)
-              dateContainer.innerHTML = d
-            }
-
-            return marker
-
-
-          }, (saveMi*10))
-
-
-        })
-        // dateContainer.innerHTML = d
-      }, saveI*300)
+          if (saveMi >= saveL) {
+            dateContainer.innerHTML = d
+          }
+        }, saveI*(saveMi*2))
+        
+      })
 
     })
   })
